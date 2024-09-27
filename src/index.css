@@ -178,6 +178,11 @@ button[type="submit"]:hover {
 /* HEADER */
 /* Header overlay */
 
+.header-image{
+  width: 1600 px;
+  height: 496 px;
+}
+
 .overlay {
   position: absolute;
   top: 0;
@@ -218,6 +223,10 @@ button[type="submit"]:hover {
 .header-banner h3 {
   color: #f8f3f3;
   font-size: 30px;
+}
+.head-banner img{
+  width: fit-content;
+  height: fit-content;
 }
 
 
@@ -963,6 +972,10 @@ h2 {
 .acheive-booking:hover {
   background-color: rgb(79, 14, 14);
 }
+
+
+
+
 /**Profile page styling */
 
 .profile-page {
@@ -1089,6 +1102,14 @@ h2 {
   color: red;
   text-align: center;
 }
+
+
+
+
+
+
+
+
 
 /* Responsive styles */
 @media (max-width: 768px) {

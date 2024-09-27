@@ -1,24 +1,13 @@
-import React, { useState } from "react";
-import RoomResult from "../common/RoomResult";
-import RoomSearch from "../common/RoomSearch";
-
-
-
+ import React, { useState } from "react";
 
 const HomePage = () =>{
 
-    const [roomSearchResults, setRoomSearchResults] = useState([]);
-
-
-        const handleSearchResult = (results) => {
-            setRoomSearchResults(results);
-        };
 
         return (
             <div className ="home">
                 <section>
                     <header className="header-banner">
-                        <img src="./assets/images/hotel.webp" alt="Seven Star Hotel" className="header-image" />
+                        <img src="./assets/images/hotel-background.jpg" alt="Seven Star Hotel" className="header-image" />
                         <div className="overlay"></div>
                         <div className="animated-texts overlay-content">
                             <h1>
@@ -29,12 +18,9 @@ const HomePage = () =>{
                     </header>
                 </section>
 
-                <RoomSearch handleSearchResult={handleSearchResult} />
-                <RoomResult roomSearchResults={roomSearchResults} />
+                
 
-                <h4><a className="view-rooms-home" href="/rooms">All Rooms</a></h4>
-
-                <h2 className="home-services">Services At <span className="seven-color">Seven star Hotel</span></h2>
+                <h2 className="home-services">Services We Offer At <span className="seven-color">Seven star Hotel</span></h2>
 
 
                 <section className="service-section"><div className="service-card">
@@ -55,7 +41,7 @@ const HomePage = () =>{
                         <img src="./assets/images/parking.png" alt="parking" />
                         <div className="service-details">
                             <h3 className= "service-title">Parking</h3>
-                            <p className="service-description">We offer on-site parking for your convenience . Please inquire about valet parking options if available.</p>
+                            <p className="service-description">We offer on-site spacious parking for your convenience . </p>
                         </div>
                     </div>
                     <div className="service-card">
