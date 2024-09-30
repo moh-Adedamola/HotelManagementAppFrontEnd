@@ -1,5 +1,11 @@
 import axios from "axios"
 
+const baseUrl = process.env.REACT_APP_GETUSERPROFILE_BASE_URL;
+const loginBaseUrl = process.env.REACT_APP_LOGIN_BASE_URL;
+const createBaseUrl = process.env.REACT_APP_CREATE_BOOKING_BASE_URL;
+const deleteBaseUrl = process.env.REACT_APP_DELETE_BOOKING_BASE_URL;
+const getBaseUrl = process.env.REACT_APP_GET_BOOKING_BASE_URL;
+
 export default class ApiService {
 
     static BASE_URL = "http://localhost:4040"
@@ -12,24 +18,19 @@ export default class ApiService {
         };
     }
 
-    /**AUTH */
 
-    /* This  register a new user */
     static async registerUser(registration) {
         const response = await axios.post(`${this.BASE_URL}/auth/register`, registration)
         return response.data
     }
 
-    /* This  login a registered user */
+
     static async loginUser(loginDetails) {
         const response = await axios.post(`${this.BASE_URL}/auth/login`, loginDetails)
         return response.data
     }
 
-    /***USERS */
 
-
-    /*  This is  to get the user profile */
     static async getAllUsers() {
         const response = await axios.get(`${this.BASE_URL}/users/all`, {
             headers: this.getHeader()
@@ -82,14 +83,14 @@ export default class ApiService {
         return result.data;
     }
 
-    /* This  gets all availavle rooms */
+
     static async getAllAvailableRooms() {
         const result = await axios.get(`${this.BASE_URL}/rooms/all-available-rooms`)
         return result.data
     }
 
 
-    /* This  gets all availavle by dates rooms from the database with a given date and a room type */
+
     static async getAvailableRoomsByDateAndType(checkInDate, checkOutDate, roomType) {
         const result = await axios.get(
             `${this.BASE_URL}/rooms/available-rooms-by-date-and-type?checkInDate=${checkInDate}
@@ -98,23 +99,24 @@ export default class ApiService {
         return result.data
     }
 
-    /* This  gets all room types from thee database */
     static async getRoomTypes() {
         const response = await axios.get(`${this.BASE_URL}/rooms/types`)
         return response.data
     }
-    /* This  gets all rooms from the database */
+
+
     static async getAllRooms() {
         const result = await axios.get(`${this.BASE_URL}/rooms/all`)
         return result.data
     }
-    /* This funcction gets a room by the id */
+
+
     static async getRoomById(roomId) {
         const result = await axios.get(`${this.BASE_URL}/rooms/room-by-id/${roomId}`)
         return result.data
     }
 
-    /* This  deletes a room by the Id */
+
     static async deleteRoom(roomId) {
         const result = await axios.delete(`${this.BASE_URL}/rooms/delete/${roomId}`, {
             headers: this.getHeader()
@@ -122,7 +124,6 @@ export default class ApiService {
         return result.data
     }
 
-    /* This updates a room */
     static async updateRoom(roomId, formData) {
         const result = await axios.put(`${this.BASE_URL}/rooms/update/${roomId}`, formData, {
             headers: {
@@ -135,41 +136,38 @@ export default class ApiService {
 
 
     /**BOOKING */
-    /* This  saves a new booking to the databse */
     static async bookRoom(roomId, userId, booking) {
 
         console.log("USER ID IS: " + userId)
 
-        const response = await axios.post(`${this.BASE_URL}/bookings/book-room/${roomId}/${userId}`, booking, {
+        const response = await axios.post(`${createBaseUrl}/bookings/book-room/${roomId}/${userId}`, booking, {
             headers: this.getHeader()
         })
         return response.data
     }
 
-    /* This  gets alll bokings from the database */
     static async getAllBookings() {
-        const result = await axios.get(`${this.BASE_URL}/bookings/all`, {
+        const result = await axios.get(`${getBaseUrl}/bookings/all`, {
             headers: this.getHeader()
         })
         return result.data
     }
 
-    /* This  get booking by the cnfirmation code */
+
     static async getBookingByConfirmationCode(bookingCode) {
         const result = await axios.get(`${this.BASE_URL}/bookings/get-by-confirmation-code/${bookingCode}`)
         return result.data
     }
 
-    /* This is the  to cancel user booking */
+
     static async cancelBooking(bookingId) {
-        const result = await axios.delete(`${this.BASE_URL}/bookings/cancel/${bookingId}`, {
+        const result = await axios.delete(`${deleteBaseUrl}/bookings/cancel/${bookingId}`, {
             headers: this.getHeader()
         })
         return result.data
     }
 
 
-    /**AUTHENTICATION CHECKER */
     static logout() {
         localStorage.removeItem('token')
         localStorage.removeItem('role')
@@ -190,4 +188,3 @@ export default class ApiService {
         return role === 'USER'
     }
 }
-// export default new ApiService();

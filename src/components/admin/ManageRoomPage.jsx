@@ -61,6 +61,7 @@ const ManageRoomPage = () => {
   // Change page
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
+
   return (
     <div className='all-rooms'>
       <h2>All Rooms</h2>

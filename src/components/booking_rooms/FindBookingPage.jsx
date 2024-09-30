@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import ApiService from '../../service/ApiService'; // Assuming your service is in a file called ApiService.js
 
+
 const FindBookingPage = () => {
     const [confirmationCode, setConfirmationCode] = useState(''); // State variable for confirmation code
     const [bookingDetails, setBookingDetails] = useState(null); // State variable for booking details
     const [error, setError] = useState(null); // Track any errors
+
 
     const handleSearch = async () => {
         if (!confirmationCode.trim()) {
@@ -49,7 +51,7 @@ const FindBookingPage = () => {
                     <br />
                     <hr />
                     <br />
-                    <h3>Booker Detials</h3>
+                    <h3>Booker Details</h3>
                     <div>
                         <p> Name: {bookingDetails.user.name}</p>
                         <p> Email: {bookingDetails.user.email}</p>

@@ -23,12 +23,12 @@ const ManageBookingsPage = () => {
             }
         };
 
-        fetchBookings();
+        fetchBookings().then(r => {});
     }, []);
 
     useEffect(() => {
         filterBookings(searchTerm);
-    }, [searchTerm, bookings]);
+    }, );//[searchTerm, bookings]);
 
     const filterBookings = (term) => {
         if (term === '') {
