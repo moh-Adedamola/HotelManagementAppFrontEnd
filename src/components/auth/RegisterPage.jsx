@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import ApiService from '../../service/ApiService';
 import { useNavigate } from 'react-router-dom';
 
 function RegisterPage() {
@@ -35,31 +34,9 @@ function RegisterPage() {
             setTimeout(() => setErrorMessage(''), 5000);
             return;
         }
-        try {
-            // Call the register method from ApiService
-            const response = await ApiService.registerUser(formData);
-
-            // Check if the response is successful
-            if (response.statusCode === 200) {
-                // Clear the form fields after successful registration
-                setFormData({
-                    name: '',
-                    email: '',
-                    password: '',
-                    phoneNumber: ''
-                });
-                setSuccessMessage('User registered successfully');
-                setTimeout(() => {
-                    setSuccessMessage('');
-                    navigate('/');
-                }, 3000);
-            }
+        
         }
-         catch (error) {
-            setErrorMessage(error.response?.data?.message || error.message);
-            setTimeout(() => setErrorMessage(''), 5000);
-        }
-    };
+    //      
 
     return (
         <div className="auth-container">

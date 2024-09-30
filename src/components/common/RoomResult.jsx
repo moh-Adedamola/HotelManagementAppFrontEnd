@@ -1,9 +1,9 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom'; // Import useNavigate
+import { useNavigate } from 'react-router-dom'; 
 import ApiService from '../../service/ApiService';
 
 const RoomResult = ({ roomSearchResults }) => {
-    const navigate = useNavigate(); // Initialize useNavigate hook
+    const navigate = useNavigate(); 
     const isAdmin = ApiService.isAdmin();
     return (
         <section className="room-results">
