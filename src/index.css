@@ -7,17 +7,6 @@
 }
 
 
-.colors {
-  color: pink;
-  color: #FF007F;
-  color: #CC0066;
-  color: #319055;
-  color: #003366;
-  color: #36454F;
-  color: #007F86;
-  color: #007F86;
-}
-
 .navbar {
   display: flex;
   justify-content: space-between;
